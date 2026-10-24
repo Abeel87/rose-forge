@@ -1,6 +1,6 @@
 # ROSE Forge
 
-**Publiczna aplikacja:** https://rose-forge.gipgibon.chatgpt.site
+**Publiczna aplikacja:** https://abeel87.github.io/rose-forge/
 
 **Repozytorium:** https://github.com/Abeel87/rose-forge
 
@@ -16,6 +16,12 @@ Polish crafting workshop for ROSE Online Global (Rednim Games). A standalone bui
 - Refinement cost expectation using an absorbing Markov chain with real recovery below the starting level; finite-attempt target probability via dynamic programming. No invented success tables.
 - Separate Saki durability calculator, limited to a single attempt or repeated No Risk attempts until the first success.
 - Local prices, inventory, favorites, cart, edits, calculator state; JSON backup and import.
+
+## Publikacja na GitHub Pages
+
+Działająca aplikacja: https://abeel87.github.io/rose-forge/
+
+Workflow `.github/workflows/pages.yml` sprawdza JavaScript i testy kalkulatorów, a następnie publikuje katalog `dist/` na GitHub Pages. Publikacja uruchamia się po zmianach aplikacji na gałęzi `main`; można ją też uruchomić ręcznie w zakładce Actions.
 
 ## Run / verify
 
