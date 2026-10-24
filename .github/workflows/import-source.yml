@@ -1,0 +1,31 @@
+name: Import ROSE Forge source
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/import-source.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Verify and unpack the source archive
+        run: |
+          printf '%s  %s\n' 'e175ee3f7643a7f347097b6fc30f64b9998167ed41f555efc34989978cbf2dfa' 'rose-forge-source.tar.gz' | sha256sum -c -
+          tar --extract --gzip --file rose-forge-source.tar.gz --no-same-owner
+      - name: Verify JavaScript and calculator tests
+        run: |
+          node --check dist/app.js
+          node --check dist/refinery.js
+          npm test
+      - name: Commit the complete project
+        run: |
+          rm rose-forge-source.tar.gz
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Publish complete ROSE Forge application source'
+          git push origin HEAD:main
