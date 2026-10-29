@@ -1,5 +1,10 @@
 # ROSE Forge
 
+Poprawka z 29.10.2026: wyczyszczona opłata Artisana pozostaje nieznana po
+ponownym otwarciu receptury, dodaniu do listy zakupów i imporcie kopii.
+Jawne `0` nadal oznacza brak opłaty. Testy przed publikacją obejmują teraz także
+przepływ wyceny w interfejsie, a każdy PR ma osobny workflow walidacyjny.
+
 **Publiczna aplikacja:** https://abeel87.github.io/rose-forge/
 
 **Repozytorium:** https://github.com/Abeel87/rose-forge
